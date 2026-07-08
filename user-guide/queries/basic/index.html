@@ -1,0 +1,2404 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../expressions/">
+      
+      
+        <link rel="next" href="../select/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Basic Queries - Beam Documentation</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+<link rel="stylesheet" type="text/css" href="../../../css/beam.css"/>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../docs/theme/css/beam.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-types" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Beam Documentation" class="md-header__button md-logo" aria-label="Beam Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beam Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basic Queries
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/haskell-beam/beam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    haskell-beam/beam
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Beam Documentation" class="md-nav__button md-logo" aria-label="Beam Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Beam Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/haskell-beam/beam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    haskell-beam/beam
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tutorial1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tutorial2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/tutorial3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Queries
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Queries
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-q-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Q data type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-qgenexpr-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The QGenExpr type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-note-on-type-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on type inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple queries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-composability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on composability
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../select/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More complex SELECTs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ordering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aggregates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aggregates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../combining-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combining queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Window functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-table-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common table expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../extensibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Manipulation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Manipulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manipulation/insert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manipulation/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UPDATE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manipulation/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DELETE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../manipulation/copy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    COPY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schema management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../schema-guide/migrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Migrations Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backends
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backends
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backends/beam-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backends/beam-sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backends/beam-duckdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-duckdb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom-backends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing a Custom Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-q-data-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Q data type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-qgenexpr-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The QGenExpr type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-note-on-type-inference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on type inference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simple queries
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-note-on-composability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A note on composability
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Basic Queries</h1>
+
+<p>Given our database definition and database descriptor, we can query database
+entities and retrieve data. Before we discuss writing queries, we will take a
+look at some of the important query types.</p>
+<h2 id="data-types">Data types</h2>
+<h3 id="the-q-data-type">The <code>Q</code> data type</h3>
+<p>Beam queries are built using the <code>Q</code> data type. <code>Q</code>'s signature is as follows</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">Q</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">db</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">a</span>
+</code></pre></div>
+
+<p>In this definition</p>
+<ul>
+<li><code>be</code> is the particular Beam backend this <code>Q</code> monad is written
+  for. Each beam backend defines a custom tag type. For example,
+  <code>beam-sqlite</code> provides the <code>Sqlite</code> tag, and <code>beam-postgres</code>
+  provides the <code>Postgres</code> tag. You can see what SQL backends are available
+  in GHCi by asking for info on the <code>BeamSqlBackend</code> class.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>Prelude Database.Beam Database.Beam.Sqlite Data.Text Database.SQLite.Simple Lens.Micro Data.Time Database.Beam.Backend.SQL T&gt; :info BeamSqlBackend
+ass (Database.Beam.Backend.Types.BeamBackend be,
+     IsSql92Syntax (BeamSqlBackendSyntax be),
+     Sql92SanityCheck (BeamSqlBackendSyntax be),
+     HasSqlValueSyntax (BeamSqlBackendValueSyntax be) Bool,
+     HasSqlValueSyntax (BeamSqlBackendValueSyntax be) SqlNull,
+     Eq (BeamSqlBackendExpressionSyntax be)) =&gt;
+    BeamSqlBackend be
+    -- Defined at /Users/travis/Projects/beam/beam-core/Database/Beam/Backend/SQL.hs:212:1
+stance BeamSqlBackend Sqlite
+-- Defined at /Users/travis/Projects/beam/beam-sqlite/Database/Beam/Sqlite/Connection.hs:157:10
+stance (IsSql92Syntax syntax, Sql92SanityCheck syntax,
+        HasSqlValueSyntax (Sql92ValueSyntax syntax) Bool,
+        HasSqlValueSyntax (Sql92ValueSyntax syntax) SqlNull,
+        Eq (Sql92ExpressionSyntax syntax)) =&gt;
+       BeamSqlBackend (MockSqlBackend syntax)
+-- Defined at /Users/travis/Projects/beam/beam-core/Database/Beam/Backend/SQL.hs:238:10
+</code></pre></div>
+
+<ul>
+<li>
+<p><code>db</code> is the type of the database (as we defined above). This is used to ensure
+  you only query database entities that are in scope in this database.</p>
+</li>
+<li>
+<p><code>s</code> is the scope parameter. For the most part, you'll write your queries so
+  that they work over all <code>s</code>. Beam manipulates this parameter internally to
+  ensure that the fields in your expressions are always in scope at run-time.</p>
+</li>
+<li>
+<p><code>a</code> is the type of the result of the query.</p>
+</li>
+</ul>
+<p><code>Q</code> is a monad, which means you can use your favorite <code>Monad</code>, <code>Applicative</code>,
+and <code>Functor</code> functions. The <code>Functor</code> instance can be used to create
+projections
+as <a href="../select/#returning-a-subset-of-columns">explained in the next section</a>.
+The <code>Monad</code> and <code>Applicative</code> instances can be used
+to <a href="../relationships/#full-inner-joins">create JOINs</a>.</p>
+<h3 id="the-qgenexpr-type">The <code>QGenExpr</code> type</h3>
+<p>While <code>Q</code> represents the result of whole queries (entire <code>SELECT</code>s for example),
+<code>QGenExpr</code> represents the type of SQL expressions. <code>QGenExpr</code> also takes some
+type parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="n">a</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p><code>context</code> is the particular way in which this expression is being used. For
+  example, expressions containing aggregates have <code>context ~ QAggregateContext</code>.
+  Expressions returning scalar values have <code>context ~ QValueContext</code>.</p>
+</li>
+<li>
+<p><code>be</code> is the backend for which this expression is written. For
+  example, expressions destined for execution in PostgreSQL, will
+  substitute this for <code>Postgres</code> (from <code>Database.Beam.Postgres</code> in the
+  <code>beam-postgres</code> package). You can also leave this polymorphic if you
+  want your expression to be useable across multiple backends.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In previous versions of beam <code>be</code> indicated the 'syntax' rather
+than the backend. This was confusing because the syntax and backend
+types were not obviously related. Beam &gt;=0.8.0.0 uses the backend
+type consistently to indicate where an expression is being used.</p>
+</div>
+<ul>
+<li>
+<p><code>s</code> is a scoping parameter, which will match the <code>s</code> in <code>Q</code>.</p>
+</li>
+<li>
+<p><code>a</code> is the type of this expression. For example, expressions returning SQL
+  <code>int</code> values, will have Haskell type <code>Int32</code>. This ensures that your SQL query
+  won't fail at run-time with a type error.</p>
+</li>
+</ul>
+<p>Beam defines some specializations of <code>QGenExpr</code> for common uses.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="kt">QExpr</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QValueContext</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">QAgg</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QAggregateContext</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">QOrd</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QOrderingContext</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">QWindowExpr</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QWindowingContext</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">QWindowFrame</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QWindowFrameContext</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">QGroupExpr</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">QGenExpr</span><span class="w"> </span><span class="kt">QGroupingContext</span>
+</code></pre></div>
+
+<p>Thus, value expressions can be given the simpler type of <code>QExpr be s a</code>.
+Expressions containing aggregates are typed as <code>QAgg be s a</code>.</p>
+<h3 id="a-note-on-type-inference">A note on type inference</h3>
+<p>These types may seem incredibly complicated. Indeed, the safety that beam tries
+to provide requires these scary-looking types.</p>
+<p>But alas, do not fear! Beam is also designed to assist type inference. For the
+most part, you will rarely need to annotate these types in your code.
+Occassionally you will need to provide a type for the result of an expression.
+For example, <code>SELECT</code>ing just the literal <code>1</code> may cause an ambiguity, because
+the compiler won't know which <code>Integral</code> type to use. Beam provides an easy
+utility function <code>as_</code> for this. With <code>-XTypeApplications</code> enabled,</p>
+<div class="highlight"><pre><span></span><code><span class="nf">as_</span><span class="w"> </span><span class="o">@</span><span class="kt">Int32</span><span class="w"> </span><span class="p">(</span><span class="n">ambiguous</span><span class="w"> </span><span class="n">expression</span><span class="p">)</span>
+</code></pre></div>
+
+<p>ensures that <code>ambiguous expression</code> has the type <code>QGenExpr ctxt be s Int32</code>
+with the <code>ctxt</code>, <code>be</code>, and <code>s</code> types appropriately inferred.</p>
+<h2 id="simple-queries">Simple queries</h2>
+<p>The easiest query is simply getting all the rows in a specific table. If you
+have a database object (something with type <code>DatabaseSettings be db</code>) with some
+table or view entities, you can use the <code>all_</code> function to retrieve all rows in
+a specific table or view.</p>
+<p>For example, to retrieve all <code>PersonT</code> entries in the <code>exampleDb</code> we defined in
+the last section, we can say</p>
+<div class="highlight"><pre><span></span><code><span class="nf">all_</span><span class="w"> </span><span class="p">(</span><span class="n">persons</span><span class="w"> </span><span class="n">exampleDb</span><span class="p">)</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Q</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="kt">ExampleDb</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">(</span><span class="kt">PersonT</span><span class="w"> </span><span class="p">(</span><span class="kt">QExpr</span><span class="w"> </span><span class="n">s</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We give the full type of the query here for illustrative purposes only. There
+is no need to do so in your own code</p>
+</div>
+<p>Two things to note. Firstly, here <code>PersonT</code> is parameterized over the <code>QExpr s</code>
+higher-kinded type. This means that each field in <code>PersonT</code> now contains a SQL
+expression instead of a Haskell value. This is the magic that our parameterized
+types allow.</p>
+<p>Thus,</p>
+<div class="highlight"><pre><span></span><code><span class="nf">personFirstName</span><span class="w"> </span><span class="p">(</span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">persons</span><span class="w"> </span><span class="n">exampleDb</span><span class="p">))</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">QExpr</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="kt">Text</span>
+</code></pre></div>
+
+<p>and</p>
+<div class="highlight"><pre><span></span><code><span class="nf">personFirstName</span><span class="w"> </span><span class="p">(</span><span class="kt">Person</span><span class="w"> </span><span class="s">&quot;John&quot;</span><span class="w"> </span><span class="s">&quot;Smith&quot;</span><span class="w"> </span><span class="mi">23</span><span class="w"> </span><span class="s">&quot;john.smith@example.com&quot;</span><span class="w"> </span><span class="s">&quot;8888888888&quot;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Person</span><span class="p">)</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Text</span>
+</code></pre></div>
+
+<p>Secondly, the field type has the same scope variable as the entire query. This
+means, it can only be used in the scope of this query. You will never be able to
+inspect the type of <code>s</code> from outside <code>Q</code>.</p>
+<p>Once we have a query in terms of <code>Q</code>, we can use the <code>select</code> function from
+<code>Database.Beam.Query</code> to turn it into a select statement that can be run against
+the backend. <code>select</code> takes an expression of type <code>Q</code>, and converts it into a
+SQL statement, ready to be executed against the database.</p>
+<p>The output of the query passed to <code>select</code> must follow some conventions, so that
+beam knows how to serialize, deserialize, and project the appropriate values
+from the query. In particular, the return type of your query must be either</p>
+<ul>
+<li>a plain expression (i.e., type <code>QExpr</code>),</li>
+<li>a <code>Beamable</code> type (i.e., a table or primary key, defined as above), or</li>
+<li>any combination of tuples of the above (Beam supports up to 8-tuples by
+  default). Higher-order tuples can be formed by nested tuples. For example, for
+  16 return values, you can return a 2-tuple of 8-tuples or an 8-tuple of
+  2-tuples or a 4-tuple of 4-tuples, etc.</li>
+</ul>
+<p>With this in mind, we can use <code>select</code> to get a query statement against our
+database. The return type of <code>all_</code> is just the table we ask for. In this case,
+we're interested in the <code>persons</code> table. The <code>persons</code> table has the <code>Beamable</code>
+type <code>PersonT</code>. As expected, the <code>SqlSelect</code> will return us concrete <code>Person</code>
+values (recall that <code>Person</code> is equivalent to <code>PersonT Identity</code>).</p>
+<div class="highlight"><pre><span></span><code><span class="nf">select</span><span class="w"> </span><span class="p">(</span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">persons</span><span class="w"> </span><span class="n">exampleDb</span><span class="p">))</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">HasQBuilder</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="ow">=&gt;</span><span class="w"> </span><span class="kt">SqlSelect</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="kt">Person</span>
+</code></pre></div>
+
+<p>Normally, you'd ship this select statement off to a backend to run, but for the
+purposes of this tutorial, we can also ask beam to dump what the standard SQL
+expression this query encodes.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">dumpSqlSelect</span><span class="w"> </span><span class="p">(</span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">persons</span><span class="w"> </span><span class="n">exampleDb</span><span class="p">))</span>
+<span class="kt">SELECT</span><span class="w"> </span><span class="p">`</span><span class="n">t0</span><span class="p">`</span><span class="o">.</span><span class="p">`</span><span class="n">email</span><span class="p">`</span><span class="w"> </span><span class="kt">AS</span><span class="w"> </span><span class="s">&quot;res0&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">`</span><span class="n">t0</span><span class="p">`</span><span class="o">.</span><span class="p">`</span><span class="n">first_name</span><span class="p">`</span><span class="w"> </span><span class="kt">AS</span><span class="w"> </span><span class="s">&quot;res1&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">`</span><span class="n">t0</span><span class="p">`</span><span class="o">.</span><span class="p">`</span><span class="n">last_name</span><span class="p">`</span><span class="w"> </span><span class="kt">AS</span><span class="w"> </span><span class="s">&quot;res2&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">`</span><span class="n">t0</span><span class="p">`</span><span class="o">.</span><span class="p">`</span><span class="n">password</span><span class="p">`</span><span class="w"> </span><span class="kt">AS</span><span class="w"> </span><span class="s">&quot;res3&quot;</span><span class="w"> </span><span class="kt">FROM</span><span class="w"> </span><span class="s">&quot;cart_users&quot;</span><span class="w"> </span><span class="kt">AS</span><span class="w"> </span><span class="s">&quot;t0&quot;</span>
+</code></pre></div>
+
+<p>Internally, <code>dumpSqlSelect</code> uses a <code>beam-core</code> provided syntax to generate
+standard ANSI SQL expressions. Note that these expressions should not be shipped
+to a backend directly, as they may not be escaped properly. Still, it is useful
+to see what would run.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>all_</code> only works for <code>TableEntity</code>s. Use <code>allFromView_</code> for <code>ViewEntity</code>s.</p>
+</div>
+<h2 id="a-note-on-composability">A note on composability</h2>
+<p>All beam queries are <em>composable</em>. This means that you can freely mix values of
+type <code>Q</code> in whichever way typechecks and expect a reasonable SQL query. This
+differs from the behavior of SQL, where the syntax for composing queries depends
+on the structure of that query.</p>
+<p>For example, suppose you wanted to fetch all rows of a table, filter them by a
+condition, limit the amount of rows returned and then join these rows with
+another table. In SQL, you'd have to write explicit subselects, take care of
+handling projections, etc. This is because this query doesn't fit into the
+'standard' SQL query structure.</p>
+<p>However, in beam, you can simply write this query. Beam will take care of
+generating explicit subselects and handling projections. Scoping rules enforced
+by the Haskell type system ensure that the query is constructed correctly.</p>
+<p>For example, we can write the following (meaningless) query, and things will work as expected.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-0-Haskell" aria-controls="tab-0-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-0-Postgres" aria-controls="tab-0-Postgres" role="tab" data-toggle="tab" data-lang="sql">Postgres</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-0-Sqlite" aria-controls="tab-0-Sqlite" role="tab" data-toggle="tab" data-lang="sql">Sqlite</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-0-Duckdb" aria-controls="tab-0-Duckdb" role="tab" data-toggle="tab" data-lang="sql">Duckdb</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="kr">do</span><span class="w"> </span><span class="n">tbl1</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">     </span><span class="n">limit_</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">$</span>
+<span class="w">     </span><span class="n">filter_</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">customer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="n">customerFirstName</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">`</span><span class="n">like_</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Jo%&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;.</span><span class="w"> </span><span class="p">(</span><span class="n">customerLastName</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">`</span><span class="n">like_</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;S%&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;.</span>
+<span class="w">                           </span><span class="p">(</span><span class="n">addressState</span><span class="w"> </span><span class="p">(</span><span class="n">customerAddress</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">just_</span><span class="w"> </span><span class="s">&quot;CA&quot;</span><span class="w"> </span><span class="o">||.</span><span class="w"> </span><span class="n">addressState</span><span class="w"> </span><span class="p">(</span><span class="n">customerAddress</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">just_</span><span class="w"> </span><span class="s">&quot;WA&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">$</span>
+<span class="w">             </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">customer</span><span class="w"> </span><span class="n">chinookDb</span><span class="p">)</span>
+<span class="w">   </span><span class="n">tbl2</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">track</span><span class="w"> </span><span class="n">chinookDb</span><span class="p">)</span>
+<span class="w">   </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">tbl1</span><span class="p">,</span><span class="w"> </span><span class="n">tbl2</span><span class="p">)</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-Postgres">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Jo%&#39;</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;S%&#39;</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">           </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CA&#39;</span><span class="p">))</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">              </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;WA&#39;</span><span class="p">)))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-Sqlite">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="k">CASE</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">           </span><span class="k">END</span><span class="p">)</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">              </span><span class="k">END</span><span class="p">))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: [SQLText &quot;Jo%&quot;,SQLText &quot;S%&quot;,SQLText &quot;CA&quot;,SQLInteger 1,SQLText &quot;CA&quot;,SQLInteger 0,SQLText &quot;CA&quot;,SQLText &quot;WA&quot;,SQLInteger 1,SQLText &quot;WA&quot;,SQLInteger 0,SQLText &quot;WA&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-Duckdb">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="k">CASE</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">           </span><span class="k">END</span><span class="p">)</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">              </span><span class="k">END</span><span class="p">))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: [&quot;Jo%&quot;,&quot;S%&quot;,&quot;CA&quot;,True,&quot;CA&quot;,False,&quot;CA&quot;,&quot;WA&quot;,True,&quot;WA&quot;,False,&quot;WA&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>This allows you to easily factor out queries. This means you can build a query
+library in your application and then freely mix and match these queries as
+necessary. This allows you to offload as much processing to the database as
+possible, rather than shipping data to your application pre-processing.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-18-Haskell" aria-controls="tab-18-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-18-Postgres" aria-controls="tab-18-Postgres" role="tab" data-toggle="tab" data-lang="sql">Postgres</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-18-Sqlite" aria-controls="tab-18-Sqlite" role="tab" data-toggle="tab" data-lang="sql">Sqlite</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-18-Duckdb" aria-controls="tab-18-Duckdb" role="tab" data-toggle="tab" data-lang="sql">Duckdb</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-18-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="c1">-- &#39;complicatedQuery&#39; could be declared and imported from an external module here. The generated query is the same regardless</span>
+<span class="kr">let</span><span class="w"> </span><span class="n">complicatedQuery</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">       </span><span class="n">filter_</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">customer</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="p">((</span><span class="n">customerFirstName</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">`</span><span class="n">like_</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;Jo%&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;.</span><span class="w"> </span><span class="p">(</span><span class="n">customerLastName</span><span class="w"> </span><span class="n">customer</span><span class="w"> </span><span class="p">`</span><span class="n">like_</span><span class="p">`</span><span class="w"> </span><span class="s">&quot;S%&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;&amp;.</span>
+<span class="w">                             </span><span class="p">(</span><span class="n">addressState</span><span class="w"> </span><span class="p">(</span><span class="n">customerAddress</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">just_</span><span class="w"> </span><span class="s">&quot;CA&quot;</span><span class="w"> </span><span class="o">||.</span><span class="w"> </span><span class="n">addressState</span><span class="w"> </span><span class="p">(</span><span class="n">customerAddress</span><span class="w"> </span><span class="n">customer</span><span class="p">)</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">just_</span><span class="w"> </span><span class="s">&quot;WA&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">$</span>
+<span class="w">               </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">customer</span><span class="w"> </span><span class="n">chinookDb</span><span class="p">)</span>
+<span class="kr">in</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="n">tbl1</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">limit_</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">complicatedQuery</span>
+<span class="w">      </span><span class="n">tbl2</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">track</span><span class="w"> </span><span class="n">chinookDb</span><span class="p">)</span>
+<span class="w">      </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">tbl1</span><span class="p">,</span><span class="w"> </span><span class="n">tbl2</span><span class="p">)</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-18-Postgres">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Jo%&#39;</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;S%&#39;</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">           </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;CA&#39;</span><span class="p">))</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">DISTINCT</span>
+<span class="w">              </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;WA&#39;</span><span class="p">)))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-18-Sqlite">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="k">CASE</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">           </span><span class="k">END</span><span class="p">)</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">              </span><span class="k">END</span><span class="p">))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: [SQLText &quot;Jo%&quot;,SQLText &quot;S%&quot;,SQLText &quot;CA&quot;,SQLInteger 1,SQLText &quot;CA&quot;,SQLInteger 0,SQLText &quot;CA&quot;,SQLText &quot;WA&quot;,SQLInteger 1,SQLText &quot;WA&quot;,SQLInteger 0,SQLText &quot;WA&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-18-Duckdb">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res0&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res3&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res4&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res5&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res6&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res7&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res8&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res9&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res10&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res11&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;res12&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;TrackId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res13&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res14&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;AlbumId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res15&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;MediaTypeId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res16&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;GenreId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res17&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Composer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res18&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Milliseconds&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res19&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;Bytes&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res20&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;UnitPrice&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res21&quot;</span>
+<span class="k">FROM</span>
+<span class="w">  </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;CustomerId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Company&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Address&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;City&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Country&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;PostalCode&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Phone&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Fax&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;Email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res11&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;SupportRepId&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res12&quot;</span>
+<span class="w">   </span><span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;Customer&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="w">   </span><span class="k">WHERE</span><span class="w"> </span><span class="p">(((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;FirstName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;LastName&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">)))</span>
+<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="k">CASE</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">               </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">           </span><span class="k">END</span><span class="p">)</span>
+<span class="w">          </span><span class="k">OR</span><span class="w"> </span><span class="p">(</span><span class="k">CASE</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">WHEN</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span>
+<span class="w">                       </span><span class="k">OR</span><span class="w"> </span><span class="p">((</span><span class="o">?</span><span class="p">)</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                  </span><span class="k">ELSE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;State&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">)</span>
+<span class="w">              </span><span class="k">END</span><span class="p">))</span>
+<span class="w">   </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">CROSS</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;Track&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: [&quot;Jo%&quot;,&quot;S%&quot;,&quot;CA&quot;,True,&quot;CA&quot;,False,&quot;CA&quot;,&quot;WA&quot;,True,&quot;WA&quot;,False,&quot;WA&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+
+      <script src="../../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+<script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript">
+ $(document.body).tab();
+ $(".nav-item:first-child").tab("show");
+</script>
+
+  </body>
+</html>

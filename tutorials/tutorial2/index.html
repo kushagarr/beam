@@ -1,0 +1,2527 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../tutorial1/">
+      
+      
+        <link rel="next" href="../tutorial3/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Part 2 - Beam Documentation</title>
+      
+    
+    
+
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+<link rel="stylesheet" type="text/css" href="../../css/beam.css"/>
+
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../docs/theme/css/beam.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Beam Documentation" class="md-header__button md-logo" aria-label="Beam Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Beam Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Part 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/haskell-beam/beam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    haskell-beam/beam
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Beam Documentation" class="md-nav__button md-logo" aria-label="Beam Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Beam Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/haskell-beam/beam" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    haskell-beam/beam
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorial
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/databases/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backends
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Queries
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/select/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More complex SELECTs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/ordering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ordering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/aggregates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aggregates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/combining-queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combining queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/window-functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Window functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/advanced-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/queries/common-table-expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common table expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/extensibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Manipulation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Manipulation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/manipulation/insert/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    INSERT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/manipulation/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UPDATE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/manipulation/delete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DELETE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/manipulation/copy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    COPY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schema management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema-guide/migrations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Migrations Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backends
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Backends
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backends/beam-postgres/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-postgres
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backends/beam-sqlite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-sqlite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/backends/beam-duckdb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    beam-duckdb
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/custom-backends/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing a Custom Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility Matrix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/release-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="introduction">Introduction</h1>
+<p>In the last part, we created a simple database with one table. We then used the
+beam interface to add entities into that table and query them. In this tutorial,
+we'll see how to update and delete rows and how to establish and query relations
+between tables.</p>
+<p>We'll then delve deeper into queries to see how to create queries that return
+multiple tables.</p>
+<h1 id="adding-a-related-table">Adding a related table</h1>
+<p>The users in our simple e-commerce application would like to ship orders to
+their homes. Let's build an addresses model to allow users to add home addresses
+to their profile. Our table will store United States addresses for now. An
+address in the United States consists of</p>
+<ul>
+<li>an auto-incrementing primary key</li>
+<li>one required house number and street line</li>
+<li>an optional apartment/suite number line</li>
+<li>a required city</li>
+<li>a required 2-letter state/territory code</li>
+<li>one 5-digit ZIP code</li>
+</ul>
+<p>Let's build the <code>AddressT</code> table. <code>AddressT</code> will follow a similar formula to
+<code>UserT</code>, but it will contain a reference to a <code>UserT</code> table. ]</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Address</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="n">_addressId</span><span class="w">    </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Int32</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressLine1</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressLine2</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="w"> </span><span class="kt">Text</span><span class="p">)</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressCity</span><span class="w">  </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressState</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressZip</span><span class="w">   </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressForUser</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                  </span><span class="kr">deriving</span><span class="w"> </span><span class="p">(</span><span class="kt">Generic</span><span class="p">,</span><span class="w"> </span><span class="kt">Beamable</span><span class="p">)</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">Address</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="kt">Identity</span>
+<span class="kr">deriving</span><span class="w"> </span><span class="kr">instance</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="p">(</span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="kt">Identity</span><span class="p">)</span>
+<span class="kr">deriving</span><span class="w"> </span><span class="kr">instance</span><span class="w"> </span><span class="kt">Show</span><span class="w"> </span><span class="kt">Address</span>
+
+<span class="kr">instance</span><span class="w"> </span><span class="kt">Table</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">    </span><span class="kr">data</span><span class="w"> </span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">AddressId</span><span class="w"> </span><span class="p">(</span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Int32</span><span class="p">)</span><span class="w"> </span><span class="kr">deriving</span><span class="w"> </span><span class="p">(</span><span class="kt">Generic</span><span class="p">,</span><span class="w"> </span><span class="kt">Beamable</span><span class="p">)</span>
+<span class="w">    </span><span class="n">primaryKey</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">AddressId</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">_addressId</span>
+<span class="kr">type</span><span class="w"> </span><span class="kt">AddressId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="kt">Identity</span><span class="w"> </span><span class="c1">-- For convenience</span>
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Above, we used the <code>C</code> constructor instead of <code>Columnar</code> for each column.
+<code>C</code> is a type synonym for <code>Columnar</code>, and some find it reduces the syntactic
+overhead of model declaration.</p>
+</div>
+<p>Notice that <code>_addressForUser</code> is declared as a <code>PrimaryKey UserT f</code>. This pulls
+in all the columns necessary for referencing a <code>UserT</code> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Later, we'll also
+see how beam can use the field to automatically create JOINs.</p>
+<p>Notice also that <code>_addressId</code> corresponds to our auto-increminting primary key
+field. In general, beam doesn't care if the underlying field is assigned
+automatically, only about the type of final values of that field.</p>
+<p>We have all the tables we need now, so let's go ahead and redefine our newest
+database type.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">ShoppingCartDb</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ShoppingCartDb</span>
+<span class="w">                      </span><span class="p">{</span><span class="w"> </span><span class="n">_shoppingCartUsers</span><span class="w">         </span><span class="ow">::</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">TableEntity</span><span class="w"> </span><span class="kt">UserT</span><span class="p">)</span>
+<span class="w">                      </span><span class="p">,</span><span class="w"> </span><span class="n">_shoppingCartUserAddresses</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">TableEntity</span><span class="w"> </span><span class="kt">AddressT</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                        </span><span class="kr">deriving</span><span class="w"> </span><span class="p">(</span><span class="kt">Generic</span><span class="p">,</span><span class="w"> </span><span class="kt">Database</span><span class="w"> </span><span class="n">be</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="modifying-the-default-naming-choices">Modifying the default naming choices</h2>
+<p>In the last part of the tutorial, we let beam decide our field names for us.
+This is great for simple cases. However, sometimes you want more control over
+the naming options.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Previous versions of this tutorial had instructions on changing the schema
+type of particular tables. This functionality has been moved from
+<code>beam-core</code> into the <code>beam-migrate</code> package. See
+the <a href="../../schema-guide/migrations/">migrations guide</a> for more information.</p>
+</div>
+<p>The <code>defaultDbSettings</code> function generates names using the Haskell record
+selector names <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. This function returns the <code>DatabaseType</code> parameterized over
+<code>DatabaseEntity</code>, which is a type that contains metadata about entity names. We
+can <em>modify</em> this description after it is created by using the
+<code>withDbModification</code> function. You can think of <code>withDbModification</code> as applying
+a transformation function to each name in our database.</p>
+<p>Most of the time <code>withDbModification</code> needs a full description of the database
+names. However, most of the time we only want to rename certain columns or
+tables. We can use the <code>dbModification</code> value to construct a modification that
+doesn't change any names. We can then use the Haskell record update syntax to
+update field and column names. This is best illustrated by an example.</p>
+<p>Recall our Haskell data types above.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">data</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="n">f</span>
+<span class="w">    </span><span class="ow">=</span><span class="w"> </span><span class="kt">User</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="n">_userEmail</span><span class="w">     </span><span class="ow">::</span><span class="w"> </span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">_userFirstName</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">_userLastName</span><span class="w">  </span><span class="ow">::</span><span class="w"> </span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="n">_userPassword</span><span class="w">  </span><span class="ow">::</span><span class="w"> </span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="kr">deriving</span><span class="w"> </span><span class="kt">Generic</span>
+
+<span class="kr">data</span><span class="w"> </span><span class="kt">AddressT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Address</span>
+<span class="w">                </span><span class="p">{</span><span class="w"> </span><span class="n">_addressId</span><span class="w">    </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Int32</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressLine1</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressLine2</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">Maybe</span><span class="w"> </span><span class="kt">Text</span><span class="p">)</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressCity</span><span class="w">  </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressState</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressZip</span><span class="w">   </span><span class="ow">::</span><span class="w"> </span><span class="kt">C</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span>
+
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="n">_addressForUser</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                  </span><span class="kr">deriving</span><span class="w"> </span><span class="kt">Generic</span>
+
+<span class="kr">data</span><span class="w"> </span><span class="kt">ShoppingCartDb</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">ShoppingCartDb</span>
+<span class="w">                      </span><span class="p">{</span><span class="w"> </span><span class="n">_shoppingCartUsers</span><span class="w">         </span><span class="ow">::</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">TableEntity</span><span class="w"> </span><span class="kt">UserT</span><span class="p">)</span>
+<span class="w">                      </span><span class="p">,</span><span class="w"> </span><span class="n">_shoppingCartUserAddresses</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="p">(</span><span class="kt">TableEntity</span><span class="w"> </span><span class="kt">AddressT</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="w">                        </span><span class="kr">deriving</span><span class="w"> </span><span class="kt">Generic</span>
+</code></pre></div>
+
+<p>Now, let's say we want beam to use the name <code>addresses</code> to access the
+<code>_shoppingCartUserAddresses</code> table, and the names <code>address1</code> and <code>address2</code> to
+access <code>_addressLine1</code> and <code>_addressLine2</code> respectively.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">shoppingCartDb</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">DatabaseSettings</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="kt">ShoppingCartDb</span>
+<span class="nf">shoppingCartDb</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">defaultDbSettings</span><span class="w"> </span><span class="p">`</span><span class="n">withDbModification</span><span class="p">`</span>
+<span class="w">                 </span><span class="n">dbModification</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                   </span><span class="n">_shoppingCartUserAddresses</span><span class="w"> </span><span class="ow">=</span>
+<span class="w">                     </span><span class="n">setEntityName</span><span class="w"> </span><span class="s">&quot;addresses&quot;</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+<span class="w">                     </span><span class="n">modifyTableFields</span>
+<span class="w">                       </span><span class="n">tableModification</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                         </span><span class="n">_addressLine1</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fieldNamed</span><span class="w"> </span><span class="s">&quot;address1&quot;</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">_addressLine2</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">fieldNamed</span><span class="w"> </span><span class="s">&quot;address2&quot;</span>
+<span class="w">                       </span><span class="p">}</span>
+<span class="w">                 </span><span class="p">}</span>
+</code></pre></div>
+
+<p>Above, we use <code>dbModification</code> to produce a default modification, then
+we override the <code>_shoppingCartUserAddresses</code> modification to change
+the addresses table. We modify the table in two ways. First, we use
+the <code>setEntityName</code> function to change the name of the table. Then, we
+use <code>modifyTableFields</code> to change the names of each field. The
+modifications can be combined with the semigroup operator <code>(&lt;&gt;)</code>.</p>
+<p>We only override the <code>_addressLine1</code> and <code>_addressLine2</code> modifications with
+<code>fieldNamed "address1"</code> and <code>fieldNamed "address2"</code>. Because <code>tableModification</code>
+produces a default modification, the other columns are kept at their default
+value.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>OverloadedStrings</code> extension lets us avoid typing <code>fieldNamed</code>. For example, instead of</p>
+<p><code>_addressLine1 = fieldNamed "address1"</code></p>
+<p>we could have written</p>
+<p><code>_addressLine1 = "address1"</code></p>
+</div>
+<p>When renaming a field referring to a foreign key (for example the
+<code>_addressForUser</code> field), remember to wrap the field name with the table's
+<code>PrimaryKey</code> constructor:</p>
+<p><code>_addressForUser = UserId "user"</code></p>
+<p>Given that in part one we defined <code>UserId</code> as the <code>PrimaryKey</code> constructor for
+<code>UserT</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kr">instance</span><span class="w"> </span><span class="kt">Table</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="kr">where</span>
+<span class="w">   </span><span class="kr">data</span><span class="w"> </span><span class="kt">PrimaryKey</span><span class="w"> </span><span class="kt">UserT</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">UserId</span><span class="w"> </span><span class="p">(</span><span class="kt">Columnar</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="kt">Text</span><span class="p">)</span><span class="w"> </span><span class="kr">deriving</span><span class="w"> </span><span class="p">(</span><span class="kt">Generic</span><span class="p">,</span><span class="w"> </span><span class="kt">Beamable</span><span class="p">)</span>
+<span class="w">   </span><span class="n">primaryKey</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">UserId</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">_userEmail</span>
+</code></pre></div>
+
+<p>If you didn't need to modify any of the field names, you can omit
+<code>modifyTableFields</code>. For example, to simply produce a database with
+the first table named <code>users</code> and the second named <code>user_addresses</code>,
+you can do</p>
+<div class="highlight"><pre><span></span><code><span class="nf">shoppingCartDb1</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">DatabaseSettings</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="kt">ShoppingCartDb</span>
+<span class="nf">shoppingCartDb1</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">defaultDbSettings</span><span class="w"> </span><span class="p">`</span><span class="n">withDbModification</span><span class="p">`</span>
+<span class="w">                  </span><span class="n">dbModification</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">_shoppingCartUsers</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">setEntityName</span><span class="w"> </span><span class="s">&quot;users&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">_shoppingCartUserAddresses</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">setEntityName</span><span class="w"> </span><span class="s">&quot;user_addresses&quot;</span>
+<span class="w">                  </span><span class="p">}</span>
+</code></pre></div>
+
+<p>For the purposes of this tutorial, we'll stick with <code>shoppingCartDb</code>.</p>
+<h1 id="easier-queries-with-lenses">Easier queries with lenses</h1>
+<p>In the previous part, we accessed table columns by using regular Haskell record
+syntax. Sometimes, we would like to use the more convenient lens syntax to
+access columns. Of course, all of beam's definitions are compatible with the
+<code>lens</code> library -- that is to say, <code>makeLenses</code> will work just fine. Since this isn't
+an optics tutorial, we'll go ahead and use <code>microlens-th</code>'s <code>makeLenses</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="cm">{-#  LANGUAGE TemplateHaskell #-}</span>
+
+<span class="nf">makeLenses</span><span class="w"> </span><span class="kt">&#39;&#39;AddressT</span>
+<span class="nf">makeLenses</span><span class="w"> </span><span class="kt">&#39;&#39;UserT</span>
+<span class="nf">makeLenses</span><span class="w"> </span><span class="kt">&#39;&#39;ShoppingCartDb</span>
+</code></pre></div>
+
+<h1 id="working-with-relations">Working with relations</h1>
+<p>Now, let's see how we can add related addresses to our database. We begin by
+opening up a connection for us to use in the rest of the tutorial.</p>
+<p>First, let's open a new database and create the schema.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>sqlite3<span class="w"> </span>shoppingcart2.db
+<span class="go">SQLite version 3.14.0 2016-07-26 15:17:14</span>
+<span class="go">Enter &quot;.help&quot; for usage hints.</span>
+<span class="go">sqlite&gt; CREATE TABLE cart_users (email VARCHAR NOT NULL, first_name VARCHAR NOT NULL, last_name VARCHAR NOT NULL, password VARCHAR NOT NULL, PRIMARY KEY( email ));</span>
+<span class="go">sqlite&gt; CREATE TABLE addresses ( id INTEGER PRIMARY KEY, address1 VARCHAR NOT NULL, address2 VARCHAR, city VARCHAR NOT NULL, state VARCHAR NOT NULL, zip VARCHAR NOT NULL, for_user__email VARCHAR NOT NULL );</span>
+</code></pre></div>
+
+<p>Now, in GHCi, we can use <code>sqlite-simple</code> to get a handle to this database.</p>
+<div class="highlight"><pre><span></span><code><span class="nf">conn</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">open</span><span class="w"> </span><span class="s">&quot;shoppingcart2.db&quot;</span>
+</code></pre></div>
+
+<p>Before we add addresses, we need to add some users that we can reference.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span><span class="w"> </span><span class="n">james</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="s">&quot;james@example.com&quot;</span><span class="w"> </span><span class="s">&quot;James&quot;</span><span class="w"> </span><span class="s">&quot;Smith&quot;</span><span class="w"> </span><span class="s">&quot;b4cc344d25a2efe540adbf2678e2304c&quot;</span>
+<span class="w">    </span><span class="n">betty</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="s">&quot;betty@example.com&quot;</span><span class="w"> </span><span class="s">&quot;Betty&quot;</span><span class="w"> </span><span class="s">&quot;Jones&quot;</span><span class="w"> </span><span class="s">&quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;</span>
+<span class="w">    </span><span class="n">sam</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">User</span><span class="w"> </span><span class="s">&quot;sam@example.com&quot;</span><span class="w"> </span><span class="s">&quot;Sam&quot;</span><span class="w"> </span><span class="s">&quot;Taylor&quot;</span><span class="w"> </span><span class="s">&quot;332532dcfaa1cbf61e2a266bd723612c&quot;</span>
+<span class="nf">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">runInsert</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">insert</span><span class="w"> </span><span class="p">(</span><span class="n">_shoppingCartUsers</span><span class="w"> </span><span class="n">shoppingCartDb</span><span class="p">)</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">insertValues</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">james</span><span class="p">,</span><span class="w"> </span><span class="n">betty</span><span class="p">,</span><span class="w"> </span><span class="n">sam</span><span class="w"> </span><span class="p">]</span>
+</code></pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The <code>let</code> bindings for <code>james</code>, <code>betty</code>, and <code>sam</code> above are reused at two
+different types: as concrete rows (<code>UserT Identity</code>) inside
+<code>insertValues</code>, and as expression-level values (here as <code>pk james</code>, of
+type <code>PrimaryKey UserT (QExpr Sqlite s)</code>) inside <code>insertExpressions</code>.
+For the same binding to be usable at both types, GHC must infer a
+polymorphic type for it. Inside GHCi this happens by default, but in a
+compiled module you may need to enable <code>NoMonomorphismRestriction</code> (or
+give each binding an explicit polymorphic signature). Otherwise the
+monomorphism restriction will pin <code>james</code> to whichever type it is first
+used at, and the second use will fail to typecheck.</p>
+</div>
+<p>Now that we have some <code>User</code> objects, we can create associated addresses. Notice
+that above, we used <code>insertValues</code> to insert concrete <code>User</code> rows. This worked
+because we could determine every field of <code>User</code> before insertion. <code>Address</code>es
+however have a pesky auto-incrementing primary key field. We can get around this
+by inserting <em>expressions</em> instead of <em>values</em>. We can use <code>default_</code> to stand
+for a value that the database needs to fill in. We can use <code>val_</code> to lift a
+literal value into an expression.</p>
+<p>With that in mind, let's give James one address, Betty two addresses, and Sam none.</p>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span><span class="w"> </span><span class="n">addresses</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="kt">Address</span><span class="w"> </span><span class="n">default_</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;123 Little Street&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="kt">Nothing</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;Boston&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;MA&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;12345&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">pk</span><span class="w"> </span><span class="n">james</span><span class="p">)</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="kt">Address</span><span class="w"> </span><span class="n">default_</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;222 Main Street&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="p">(</span><span class="kt">Just</span><span class="w"> </span><span class="s">&quot;Ste 1&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;Houston&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;TX&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;8888&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">pk</span><span class="w"> </span><span class="n">betty</span><span class="p">)</span>
+<span class="w">                </span><span class="p">,</span><span class="w"> </span><span class="kt">Address</span><span class="w"> </span><span class="n">default_</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;9999 Residence Ave&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="kt">Nothing</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;Sugarland&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;TX&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;8989&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">pk</span><span class="w"> </span><span class="n">betty</span><span class="p">)</span><span class="w"> </span><span class="p">]</span>
+
+<span class="nf">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">runInsert</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">insert</span><span class="w"> </span><span class="p">(</span><span class="n">_shoppingCartUserAddresses</span><span class="w"> </span><span class="n">shoppingCartDb</span><span class="p">)</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">insertExpressions</span><span class="w"> </span><span class="n">addresses</span>
+</code></pre></div>
+
+<p>Notice that we used the <code>pk</code> function to assign the reference to the <code>UserT</code>
+table. <code>pk</code> is a synonym of the <code>primaryKey</code> function from the <code>Table</code> type
+class. It should be clear what's going on, but if it's not, let's ask GHCi.</p>
+<div class="highlight"><pre><span></span><code><span class="go">*NextSteps&gt; pk (james :: User)</span>
+<span class="go">UserId &quot;james@example.com&quot;</span>
+</code></pre></div>
+
+<p>If we query for all the addresses, we'll see that SQLite has assigned them an
+appropriate id.</p>
+<p>First, let's use the new lenses we made. Make sure to import <code>Lens.Micro</code> or
+<code>Control.Lens</code> or whichever (van Laarhoven) lens module you prefer.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-0-Haskell" aria-controls="tab-0-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-0-Sql" aria-controls="tab-0-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-0-Output" aria-controls="tab-0-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-0-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="c1">-- import Lens.Micro</span>
+<span class="c1">-- import Control.Lens</span>
+<span class="nf">addresses</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">             </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span>
+<span class="w">             </span><span class="n">select</span><span class="w"> </span><span class="p">(</span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">))</span>
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">addresses</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-0-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;}</span>
+<span class="go">Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+<span class="go">Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h1 id="a-note-about-queries">A note about queries</h1>
+<p>In the last tutorial, we saw how queries and list supported similar interfaces.
+Namely we saw how <code>limit_</code> is like <code>take</code>, <code>offset_</code> like <code>drop</code>, <code>orderBy</code> like
+an enhanced <code>sortBy</code>, and <code>aggregate</code> like an enhanced <code>groupBy</code>. These
+corresponded to the <code>LIMIT</code>, <code>OFFSET</code>, <code>ORDER BY</code>, and <code>GROUP BY</code> SQL
+constructs. The missing SQL operation in this list is the <code>JOIN</code>, which computes
+the cartesian product of two tables. In other words, a join between table <code>A</code>
+and table <code>B</code> results in a query of pairs <code>(x, y)</code> for every <code>x</code> in <code>A</code> and
+every <code>y</code> in <code>B</code>. SQL joins can result in two-way, three-way, four-way, etc.
+cartesian products.</p>
+<p>Those familiar with lists in Haskell will note that there is an easy abstraction
+for taking <em>n</em>-ary cartesian products over lists: monads.</p>
+<h2 id="the-list-monad">The list monad</h2>
+<p>We can use GHCi to see what we mean.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">NextSteps</span><span class="o">&gt;</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">)]</span>
+</code></pre></div>
+
+<p>We get the two-way cartesian product of <code>[1,2,3]</code> and <code>[4,5,6]</code>. We can make the
+product arbitrarily long.</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">NextSteps</span><span class="o">&gt;</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">];</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">]</span>
+</code></pre></div>
+
+<p>We can also use <code>guard</code> from <code>Control.Monad</code> to limit the combinations that the
+list monad puts together. For example, if we had the lists</p>
+<div class="highlight"><pre><span></span><code><span class="kr">let</span><span class="w"> </span><span class="n">usersList</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;james&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;betty&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tom&quot;</span><span class="p">)]</span>
+<span class="w">    </span><span class="n">addressesList</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;address1&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;address2&quot;</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;address3&quot;</span><span class="p">)]</span>
+</code></pre></div>
+
+<p>We can use <code>guard</code> to return all pairs of elements from <code>usersList</code> and
+<code>addressesList</code> that matched on their first element. For example,</p>
+<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="kt">NextSteps</span><span class="o">&gt;</span><span class="w"> </span><span class="kr">do</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">usersList</span><span class="p">;</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">addressesList</span><span class="p">;</span><span class="w"> </span><span class="n">guard</span><span class="w"> </span><span class="p">(</span><span class="n">fst</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">fst</span><span class="w"> </span><span class="n">address</span><span class="p">);</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">)</span><span class="w"> </span><span class="p">}</span>
+<span class="p">[((</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;james&quot;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;address1&quot;</span><span class="p">)),((</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;james&quot;</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;address2&quot;</span><span class="p">)),((</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;tom&quot;</span><span class="p">),(</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;address3&quot;</span><span class="p">))]</span>
+</code></pre></div>
+
+<h2 id="the-query-monad">The query monad</h2>
+<p>As I claimed in the first tutorial, queries support many of the same interfaces and operations lists
+do. It follows that queries also expose a monadic interface.</p>
+<p>For example, to retrieve every pair of user and address, we can write the following query:</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-1-Haskell" aria-controls="tab-1-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-1-Sql" aria-controls="tab-1-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-1-Output" aria-controls="tab-1-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-1-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">allPairs</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">            </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="kr">do</span>
+<span class="w">              </span><span class="n">user</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span>
+<span class="w">              </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">              </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">)</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">allPairs</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-1-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;first_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;last_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;password&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-1-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;sam@example.com&quot;, _userFirstName = &quot;Sam&quot;, _userLastName = &quot;Taylor&quot;, _userPassword = &quot;332532dcfaa1cbf61e2a266bd723612c&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;sam@example.com&quot;, _userFirstName = &quot;Sam&quot;, _userLastName = &quot;Taylor&quot;, _userPassword = &quot;332532dcfaa1cbf61e2a266bd723612c&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;sam@example.com&quot;, _userFirstName = &quot;Sam&quot;, _userLastName = &quot;Taylor&quot;, _userPassword = &quot;332532dcfaa1cbf61e2a266bd723612c&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>Just like with lists we can also use a construct similar to guard to ensure that
+we only retrieve users and addresses that are related. The <code>guard_</code> function
+takes in expression of type <code>QExpr s Bool</code> which represents a SQL expression
+that returns a boolean. <code>QExpr s Bool</code>s support all the common operators we have
+on regular <code>Bool</code>, except they're suffixed with a <code>.</code>. For example, where you'd
+use <code>(&amp;&amp;)</code> on two Haskell-level <code>Bool</code>s, we'd use <code>(&amp;&amp;.)</code> on <code>QExpr</code>-level
+bools.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-2-Haskell" aria-controls="tab-2-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-2-Sql" aria-controls="tab-2-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-2-Output" aria-controls="tab-2-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-2-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">usersAndRelatedAddresses</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span>
+<span class="w">       </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">       </span><span class="n">guard_</span><span class="w"> </span><span class="p">(</span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="p">(</span><span class="n">addressForUser</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="n">userId</span><span class="p">)</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">userEmail</span><span class="p">)</span>
+<span class="w">       </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">)</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">usersAndRelatedAddresses</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;first_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;last_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;password&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="p">);</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-2-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>Of course this is kind of messy because it involves manually matching the
+primary key of <code>User</code> with the reference in <code>Address</code>. Alternatively, we can use
+the <code>references_</code> predicate to have beam automatically generate a <code>QExpr</code>
+expression that can match primary keys together.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-3-Haskell" aria-controls="tab-3-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-3-Sql" aria-controls="tab-3-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-3-Output" aria-controls="tab-3-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-3-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">usersAndRelatedAddressesUsingReferences</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span>
+<span class="w">       </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+
+<span class="w">       </span><span class="n">guard_</span><span class="w"> </span><span class="p">(</span><span class="n">_addressForUser</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p">`</span><span class="n">references_</span><span class="p">`</span><span class="w"> </span><span class="n">user</span><span class="p">)</span>
+<span class="w">       </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">)</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">usersAndRelatedAddressesUsingReferences</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-3-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;first_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;last_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;password&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="p">);</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-3-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>You may have noticed that the joins up until now did not include a SQL <code>ON</code>
+clause. Instead we joined the tables together, and then used the <code>WHERE</code> clause
+to filter out results we don't want. If you'd like to use the <code>ON</code> clause to
+make the SQL clearer or save a line in your code, beam offers the <code>related_</code>
+combinator to pull related tables directly into the query monad.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-4-Haskell" aria-controls="tab-4-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-4-Sql" aria-controls="tab-4-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-4-Output" aria-controls="tab-4-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-4-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">usersAndRelatedAddressesUsingRelated</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">       </span><span class="n">user</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">related_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">_addressForUser</span><span class="w"> </span><span class="n">address</span><span class="p">)</span>
+<span class="w">       </span><span class="n">pure</span><span class="w"> </span><span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="p">)</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">usersAndRelatedAddressesUsingRelated</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-4-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;first_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;last_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;password&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res7&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res8&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res9&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res10&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="ss">&quot;t1&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="p">);</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-4-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">(User {_userEmail = &quot;james@example.com&quot;, _userFirstName = &quot;James&quot;, _userLastName = &quot;Smith&quot;, _userPassword = &quot;b4cc344d25a2efe540adbf2678e2304c&quot;},Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+<span class="go">(User {_userEmail = &quot;betty@example.com&quot;, _userFirstName = &quot;Betty&quot;, _userLastName = &quot;Jones&quot;, _userPassword = &quot;82b054bd83ffad9b6cf8bdb98ce3cc2f&quot;},Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;})</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<p>We can also query the addresses for a particular user given a <code>UserId</code>.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-5-Haskell" aria-controls="tab-5-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-5-Sql" aria-controls="tab-5-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-5-Output" aria-controls="tab-5-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-5-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="c1">-- This is a contrived example to show how we can use an arbitrary UserId to fetch a particular user.</span>
+<span class="c1">-- We don&#39;t always have access to the full &#39;User&#39; lying around. For example we may be in a function that</span>
+<span class="c1">-- only accepts &#39;UserId&#39;s.</span>
+
+<span class="kr">let</span><span class="w"> </span><span class="n">bettyId</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">UserId</span><span class="w"> </span><span class="s">&quot;betty@example.com&quot;</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">UserId</span>
+
+<span class="nf">bettysAddresses</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">       </span><span class="n">guard_</span><span class="w"> </span><span class="p">(</span><span class="n">_addressForUser</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">val_</span><span class="w"> </span><span class="n">bettyId</span><span class="p">)</span>
+<span class="w">       </span><span class="n">pure</span><span class="w"> </span><span class="n">address</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">bettysAddresses</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-5-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">);</span>
+
+<span class="c1">-- With values: [SQLText &quot;betty@example.com&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-5-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+<span class="go">Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarland&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8989&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>More complicated joins are also supported. See the section
+on <a href="../../user-guide/queries/relationships/">relationships</a></p>
+</div>
+<h1 id="updates-and-deletions">Updates and deletions</h1>
+<p>So far we've only seen how to insert data and query it. There are two other SQL
+operations that we have not covered: updates and deletions. Beam has full
+support for these manipulations as well.</p>
+<h2 id="updates">Updates</h2>
+<p>Like <code>INSERT</code> and <code>SELECT</code>, to run an <code>UPDATE</code> command, we use the <code>runUpdate</code>
+function, with a value of <code>SqlUpdate</code>.</p>
+<p>The <code>save</code> function constructs a value of <code>SqlUpdate</code> given a full record. It
+will generate an <code>UPDATE</code> that will set every field (except for the primary key
+fields) for the row that completely matches the primary key.</p>
+<p>Let's first look at updating passwords given a <code>User</code>. For this we can use the
+<code>saveTo</code> function. Suppose James wants to change his password to the md5 hash of
+"supersecure", which is <code>52a516ca6df436828d9c0d26e31ef704</code>. We have a <code>User</code>
+object representing James so we can simply call <code>saveTo</code> on the update value to
+update the corresponding record in the database.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-6-Haskell" aria-controls="tab-6-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-6-Sql" aria-controls="tab-6-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-6-Output" aria-controls="tab-6-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-6-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">james</span><span class="p">]</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">runUpdate</span><span class="w"> </span><span class="o">$</span>
+<span class="w">         </span><span class="n">save</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">james</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">userPassword</span><span class="w"> </span><span class="o">.~</span><span class="w"> </span><span class="s">&quot;52a516ca6df436828d9c0d26e31ef704&quot;</span><span class="p">)</span>
+
+<span class="w">       </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span>
+<span class="w">         </span><span class="n">lookup_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUsers</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">UserId</span><span class="w"> </span><span class="s">&quot;james@example.com&quot;</span><span class="p">)</span>
+
+<span class="nf">putStrLn</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;James&#39;s new password is &quot;</span><span class="w"> </span><span class="o">++</span><span class="w"> </span><span class="n">show</span><span class="w"> </span><span class="p">(</span><span class="n">james</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">userPassword</span><span class="p">))</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-6-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span>
+<span class="k">SET</span><span class="w"> </span><span class="ss">&quot;first_name&quot;</span><span class="o">=?</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">&quot;last_name&quot;</span><span class="o">=?</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">&quot;password&quot;</span><span class="o">=?</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="o">?</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="ss">&quot;email&quot;</span><span class="p">);</span>
+
+<span class="c1">-- With values: [SQLText &quot;James&quot;,SQLText &quot;Smith&quot;,SQLText &quot;52a516ca6df436828d9c0d26e31ef704&quot;,SQLText &quot;james@example.com&quot;]</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;first_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;last_name&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;password&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;cart_users&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">);</span>
+
+<span class="c1">-- With values: [SQLText &quot;james@example.com&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-6-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">James&#39;s new password is &quot;52a516ca6df436828d9c0d26e31ef704&quot;</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code>lookup_</code> (defined in <code>Database.Beam.Query</code>) can be used to easily lookup a
+single entity given a table entity in a database and a primary key.</p>
+</div>
+<p>This works great, but <code>save</code> requires that we have the whole <code>User</code> object at
+our disposal. Additionally, you'll notice that it causes every field to be set
+in the <code>UPDATE</code> query. Typically, this doesn't matter, but sometimes we'd like
+to update fewer fields, multiple rows, or use criteria other than a primary key
+match. The <code>update</code> function offers finer-grained control over the command
+submitted to the database.</p>
+<p>To illustrate use of this function, let's suppose the city of "Sugarland, TX"
+was renamed "Sugarville, TX" and had its ZIP code changed to be "12345"
+citywide. The following beam command will update all addresses in the old city
+to use the new name and ZIP code.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-7-Haskell" aria-controls="tab-7-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-7-Sql" aria-controls="tab-7-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-7-Output" aria-controls="tab-7-Output" role="tab" data-toggle="tab" data-lang="output">Output</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-7-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">addresses</span><span class="w"> </span><span class="ow">&lt;-</span>
+<span class="w">  </span><span class="n">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">    </span><span class="kr">do</span><span class="w"> </span><span class="n">runUpdate</span><span class="w"> </span><span class="o">$</span>
+<span class="w">         </span><span class="n">update</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">                </span><span class="p">(</span><span class="nf">\</span><span class="n">address</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">mconcat</span>
+<span class="w">                             </span><span class="p">[</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">addressCity</span><span class="w"> </span><span class="o">&lt;-.</span><span class="w"> </span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;Sugarville&quot;</span>
+<span class="w">                             </span><span class="p">,</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">addressZip</span><span class="w"> </span><span class="o">&lt;-.</span><span class="w"> </span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;12345&quot;</span><span class="w"> </span><span class="p">])</span>
+<span class="w">                </span><span class="p">(</span><span class="nf">\</span><span class="n">address</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">addressCity</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;Sugarland&quot;</span><span class="w"> </span><span class="o">&amp;&amp;.</span>
+<span class="w">                             </span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">addressState</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="n">val_</span><span class="w"> </span><span class="s">&quot;TX&quot;</span><span class="p">)</span>
+
+<span class="w">       </span><span class="n">runSelectReturningList</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">select</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">all_</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+
+<span class="nf">mapM_</span><span class="w"> </span><span class="n">print</span><span class="w"> </span><span class="n">addresses</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-7-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span>
+<span class="k">SET</span><span class="w"> </span><span class="ss">&quot;city&quot;</span><span class="o">=?</span><span class="p">,</span>
+<span class="w">    </span><span class="ss">&quot;zip&quot;</span><span class="o">=?</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;city&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;state&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">));</span>
+
+<span class="c1">-- With values: [SQLText &quot;Sugarville&quot;,SQLText &quot;12345&quot;,SQLText &quot;Sugarland&quot;,SQLText &quot;TX&quot;]</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;id&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res0&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address1&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res1&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;address2&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res2&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;city&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res3&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;state&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res4&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;zip&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res5&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="ss">&quot;t0&quot;</span><span class="p">.</span><span class="ss">&quot;for_user__email&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;res6&quot;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;t0&quot;</span><span class="p">;</span>
+
+<span class="c1">-- With values: []</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-7-Output">
+            <div class="highlight"><pre><span></span><code><span class="go">Address {_addressId = 1, _addressLine1 = &quot;123 Little Street&quot;, _addressLine2 = Nothing, _addressCity = &quot;Boston&quot;, _addressState = &quot;MA&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;james@example.com&quot;}</span>
+<span class="go">Address {_addressId = 2, _addressLine1 = &quot;222 Main Street&quot;, _addressLine2 = Just &quot;Ste 1&quot;, _addressCity = &quot;Houston&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;8888&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+<span class="go">Address {_addressId = 3, _addressLine1 = &quot;9999 Residence Ave&quot;, _addressLine2 = Nothing, _addressCity = &quot;Sugarville&quot;, _addressState = &quot;TX&quot;, _addressZip = &quot;12345&quot;, _addressForUser = UserId &quot;betty@example.com&quot;}</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h2 id="deletions">Deletions</h2>
+<p>Now suppose that Betty has decided to give up her place in Houston. We can use
+<code>runDelete</code> to run a <code>DELETE</code> command.</p>
+<p>
+                <div class="code-nav-container">
+                    
+        <ul class="nav nav-tabs">
+            
+        <li class="nav-item">
+            <a href="#tab-8-Haskell" aria-controls="tab-8-Haskell" role="tab" data-toggle="tab" data-lang="haskell">Haskell</a>
+        </li>
+    
+        <li class="nav-item">
+            <a href="#tab-8-Sql" aria-controls="tab-8-Sql" role="tab" data-toggle="tab" data-lang="sql">Sql</a>
+        </li>
+    
+        </ul>
+    
+        <div class="tab-content">
+            
+        <div role="tabpanel" class="tab-pane active" id="tab-8-Haskell">
+            <div class="highlight"><pre><span></span><code><span class="nf">runBeamSqliteDebug</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">conn</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">runDelete</span><span class="w"> </span><span class="o">$</span>
+<span class="w">  </span><span class="n">delete</span><span class="w"> </span><span class="p">(</span><span class="n">shoppingCartDb</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">shoppingCartUserAddresses</span><span class="p">)</span>
+<span class="w">         </span><span class="p">(</span><span class="nf">\</span><span class="n">address</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="o">^.</span><span class="w"> </span><span class="n">addressCity</span><span class="w"> </span><span class="o">==.</span><span class="w"> </span><span class="s">&quot;Houston&quot;</span><span class="w"> </span><span class="o">&amp;&amp;.</span>
+<span class="w">                      </span><span class="n">_addressForUser</span><span class="w"> </span><span class="n">address</span><span class="w"> </span><span class="p">`</span><span class="n">references_</span><span class="p">`</span><span class="w"> </span><span class="n">betty</span><span class="p">)</span>
+</code></pre></div>
+
+        </div>
+    
+        <div role="tabpanel" class="tab-pane " id="tab-8-Sql">
+            <div class="highlight"><pre><span></span><code><span class="k">DELETE</span>
+<span class="k">FROM</span><span class="w"> </span><span class="ss">&quot;addresses&quot;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;city&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">))</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="p">((</span><span class="ss">&quot;for_user__email&quot;</span><span class="p">)</span><span class="o">=</span><span class="p">(</span><span class="o">?</span><span class="p">));</span>
+
+<span class="c1">-- With values: [SQLText &quot;Houston&quot;,SQLText &quot;betty@example.com&quot;]</span>
+</code></pre></div>
+
+        </div>
+    
+        </div>
+    
+                </div>
+                    </p>
+<h1 id="conclusion">Conclusion</h1>
+<p>In this tutorial we created our first beam relationship. We saw how to use the
+modifications system to override the default names given to database entities.
+We used the monadic query interface to write queries that used SQL
+joins, and we saw how beam makes it easy to automatically pull related tables
+into our queries. Finally we introduced the <code>runUpdate</code> and <code>runDelete</code>
+functions and demonstrated several ways to construct UPDATEs and DELETEs.</p>
+<p>At this point, we've covered enough of the beam interface to start writing
+interesting programs. Take some time to explore beam and create your own
+databases. Afterwards, read on for the last part of the tutorial.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Actually, any <code>Beamable</code> type can be wholly embedded in another. See the
+   section on models in the <a href="../../user-guide/models/">user guide</a> for more
+   information.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>The <a href="../../user-guide/models/">models guide</a> explains the exact mechanisms
+   used&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+<script type="text/javascript" language="javascript"  src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" language="javascript">
+ $(document.body).tab();
+ $(".nav-item:first-child").tab("show");
+</script>
+
+  </body>
+</html>
